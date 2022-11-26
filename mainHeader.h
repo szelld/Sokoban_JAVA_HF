@@ -39,7 +39,7 @@ void scoreboardKiir (char *fileName);
 
 
 ///mapvalasztas.c
-void filePathValasztas(char *filePath);
+void filePathValasztas(char *filePath, char *savePath);
 void scoreboardPathValasztas(char *scoreboardPath);
 bool nyerhetE (int **map, int sor, int oszlop);
 

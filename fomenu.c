@@ -7,7 +7,7 @@
 
 
 int fomenu (void) {
-    printf("Sokoban\nA jatek kezdesehez nyomjon 1-est!\nA scoreboard megjelenitesehez nyomja meg a 2-est!\nA kilepeshez nyomja meg a 3-ast!\n");
+    printf("Sokoban\nUj jatek kezdesehez nyomjon 1-est!\nMentes beotltesehez, nyomjon 2-est\nA scoreboard megjelenitesehez nyomja meg a 3-est!\nA kilepeshez nyomja meg a 4-ast!\n");
     int state;
     scanf("%d", &state);
     while (state<0 || state >3) {

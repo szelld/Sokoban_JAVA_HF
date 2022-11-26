@@ -8,23 +8,31 @@
 
 int main() {
 
-    char filePath[18], scoreboardPath[18];
+    FILE*f;
+    char filePath[18], scoreboardPath[18], saveFilePath[25];
     bool gameE = false;
-    int state;
+    int state, lepes = 0;
 
 FOMENU:
     state = fomenu();
     switch (state) {
         case 1:
             gameE = true;
+            filePathValasztas(filePath, saveFilePath);
+            f = fopen(filePath, "r");
             goto JATEK;
-        case 2: {
+        case 2:
+            gameE = true;
+            filePathValasztas(filePath, saveFilePath);
+            f = fopen(saveFilePath, "r");
+            goto JATEK;
+        case 3: {
             //char scoreboardNev[18];
             scoreboardPathValasztas(scoreboardPath);
             scoreboardKiir(scoreboardPath);
             goto FOMENU;
         }
-        case 3:
+        case 4:
             if (gameE) {
                 goto QUITE_GAME;
             }
@@ -38,15 +46,26 @@ FOMENU:
     char nev[50];
     scanf("%s", nev);
     scoreboardPathValasztas(scoreboardPath);
-    filePathValasztas(filePath);
+    //filePathValasztas(filePath, saveFilePath);
 
-    FILE*f = fopen(filePath, "r");
+
+    struct karakter karakter;
     char sor[1000];
     int maxHossz=0, sorokDb=0, sorHossz[20]={0}, i, j;
 
     /// Ellenorzes, hogy jol nyitottuk-e meg
     if (f == NULL) {
-        perror("Nem jo a map ");
+        perror("Nem jo a map! ");
+    }
+    if (state == 2) {
+        char *p;
+        fgets(sor, 1000, f);
+        p = strtok(sor, " ");
+        lepes = atoi(p);
+        p = strtok(NULL, " ");
+        karakter.x = atoi(p);
+        p = strtok(NULL, "\n");
+        karakter.y = atoi(p);
     }
 
     /// Meghatarozzuk hogy mekkor tomb kell majd a palyahoz
@@ -60,8 +79,15 @@ FOMENU:
     fclose(f);
 
 /// A pálya letrehozasa es elso kiiratasa:
-    f = fopen(filePath, "r");
-    struct karakter karakter;
+    if (state == 1) {
+        f = fopen(filePath, "r");
+    }
+    else {
+        f = fopen(saveFilePath, "r");
+        fgets(sor, 1000, f);
+    }
+
+
     int ladaDb=0;
     int **map;
     map = (int**) malloc(sorokDb*sizeof(int*));
@@ -102,6 +128,11 @@ FOMENU:
                     originalMap[i][j] = '0';
                     ladaDb++;
                     break;
+                case '0':
+                    map[i][j] = '0';
+                    originalMap[i][j] = '0';
+                    ladaDb++;
+                    break;
                 default:
                     originalMap[i][j] = ' ';
                     break;
@@ -111,13 +142,16 @@ FOMENU:
         }
         i++;
     }while (i != sorokDb);
+
+    map[karakter.x][karakter.y] = 'I'; ///Ez a sor azért kell mert így kerül be a játékos karaktere ha mentést töltünk be, mert a _save.txt-ben az eredeti karakter van azon a helyen
+
     fclose(f);
 
 
     bool vegeE=true; /// Eza valtozo fogja megallitani a jatek magjat
     bool nyerhet = true;
     char beIrany;
-    int lepes = 0, vegex, vegey;
+    int  vegex, vegey;
     printf("A jatek betoltve. A kezdeshez nyomjon entert!\n");
     do {
         scanf("%c", &beIrany);
@@ -128,6 +162,11 @@ FOMENU:
 
 
     while (vegeE) {
+        FILE*save = fopen(saveFilePath, "w");
+        if (save == NULL) {
+            perror("Nem jo a save! ");
+        }
+        fprintf(save, "%d %d %d\n", lepes, karakter.x, karakter.y);
 
         int x = 0, nyertDb = 0, y;
 
@@ -138,17 +177,26 @@ FOMENU:
                     nyertDb++;
                 }
                 printf("%c", map[x][y]);
+
                 if (!nyerhetE(map, x, y)){
                     nyerhet = false;
                     vegex = x;
                     vegey = y;
                 }
+                if (map[x][y] == 'I' || map[x][y] == '|') {
+                    fprintf(save, "%c", originalMap[x][y]);
+                }
+                else {
+                    fprintf(save, "%c", map[x][y]);
+                }
                 y++;
             }
             printf("\n");
+            fprintf(save, "\n");
             x++;
         }
         if (!nyerhet) {
+            fclose(save);
             printf("Rossz lepes! Vesztettel! %d %d \n", vegex, vegey);
             break;
         }
@@ -315,6 +363,9 @@ FOMENU:
                         printf("Nem tudsz erre lepni!\n");
                     }
                     break;
+                case 'q':
+                    vegeE = false;
+                    goto QUITE_GAME;
                 default:
                     printf("Nem jo billentyut nyomtal meg! A jatek a W A S D billentyukkel iranyithato!\n");
                     lepes--;
@@ -322,6 +373,7 @@ FOMENU:
             }
             lepes++;
         }
+        fclose(save);
     }
 
     Jatekos *eleje = NULL;

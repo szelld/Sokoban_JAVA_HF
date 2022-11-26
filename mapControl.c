@@ -166,3 +166,5 @@ karakter leptet(int ***map, int const **originalMap, char beIrany, karakter  pla
             }
             return player;
 }
+
+
