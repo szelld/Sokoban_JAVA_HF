@@ -3,4 +3,4 @@ project(1nagyzh C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(1nagyzh main.c)
+add_executable(1nagyzh main.c scoreboard.c fomenu.c mapvalasztas.c mapKezeles.c mapControl.c)

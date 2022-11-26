@@ -2,37 +2,43 @@
 #include <string.h>
 #include <stdbool.h>
 #include "mainHeader.h"
-#include "debugmalloc.h"
+//#include "debugmalloc.h"
 
-
-typedef struct karakter {
-    int x; ///x. sor
-    int y; ///y. oszlop
-}karakter;
 
 
 int main() {
 
-    int state = fomenu();
-    char *filePath, *scoreboardPath[18];
-    Jatekos *eleje = NULL;
+    char filePath[18], scoreboardPath[18];
+    bool gameE = false;
+    int state;
+
+FOMENU:
+    state = fomenu();
     switch (state) {
         case 1:
+            gameE = true;
             goto JATEK;
-            break;
         case 2: {
-            char scoreboardNev[18];
-            nevValasztas(filePath, scoreboardNev);
-            scoreboardKiir(scoreboardNev);
+            //char scoreboardNev[18];
+            scoreboardPathValasztas(scoreboardPath);
+            scoreboardKiir(scoreboardPath);
+            goto FOMENU;
         }
-            break;
+        case 3:
+            if (gameE) {
+                goto QUITE_GAME;
+            }
+            else {
+                goto QUITE_NOGAME;
+            }
     }
 
     JATEK:
     printf("Adja meg a nevet:");
     char nev[50];
     scanf("%s", nev);
-    nevValasztas(filePath, scoreboardPath);
+    scoreboardPathValasztas(scoreboardPath);
+    filePathValasztas(filePath);
 
     FILE*f = fopen(filePath, "r");
     char sor[1000];
@@ -56,7 +62,7 @@ int main() {
 /// A pálya letrehozasa es elso kiiratasa:
     f = fopen(filePath, "r");
     struct karakter karakter;
-    int ladaDb=0;  /// A temp azert kell hogy el tudja menteni hogy a lepes elott milyen ertek volt a karakter vagy a lada helyen, karakter a 0. index, a lada az 1-es,
+    int ladaDb=0;
     int **map;
     map = (int**) malloc(sorokDb*sizeof(int*));
     for (i = 0; i<sorokDb; i++) {
@@ -310,14 +316,26 @@ int main() {
                     }
                     break;
                 default:
+                    printf("Nem jo billentyut nyomtal meg! A jatek a W A S D billentyukkel iranyithato!\n");
+                    lepes--;
                     break;
             }
+            lepes++;
         }
-        lepes++;
     }
 
+    Jatekos *eleje = NULL;
     scoreboard(eleje, scoreboardPath, nev, lepes);
 
+    state = jatekvege();
+    switch (state) {
+        case 1:
+            goto FOMENU;
+        case 2:
+            goto QUITE_GAME;
+    }
+
+QUITE_GAME:
 
     for (i=0; i<sorokDb; i++) {
         free(map[i]);
@@ -327,6 +345,8 @@ int main() {
         free(originalMap[i]);
     }
     free(originalMap);
-    scoreboardFelszabadit(eleje);
+
+QUITE_NOGAME:
+
     return 0;
 }

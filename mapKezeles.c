@@ -3,8 +3,7 @@
 //
 
 
-#include <stdlib.h>
-#include <stdbool.h>
+
 #include "mainHeader.h"
 
 bool nyerhetE (int **map, int sor, int oszlop) {

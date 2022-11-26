@@ -2,20 +2,18 @@
 // Created by David on 2022. 11. 23..
 //
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 #include "mainHeader.h"
 
 
-typedef struct Jatekos {
-    char nev[100];
-    int lepesszam;
-    struct Jatekos *next;
-}Jatekos;
+
 
 Jatekos *lanclista_beszur_eleje (Jatekos *eleje, char *nev, int lepesszam) {
     Jatekos *uj = (Jatekos *) malloc(sizeof(Jatekos));
+    if (uj == NULL) {
+        perror("Nem sikerult foglalni: lanclista_beszur_eleje: uj");
+        return eleje;
+    }
     strcpy(uj->nev, nev);
     uj->lepesszam = lepesszam;
     uj->next = eleje;
@@ -26,6 +24,9 @@ Jatekos *lanclista_beszur_eleje (Jatekos *eleje, char *nev, int lepesszam) {
 
 void lanclista_beszur (Jatekos *iter, char *nev, int lepesszam) {
     Jatekos *uj = (Jatekos *) malloc(sizeof(Jatekos));
+    if (uj == NULL) {
+        perror("Nem sikerult foglalni: lanclista_beszur: uj");
+    }
     strcpy(uj->nev, nev);
     uj->lepesszam = lepesszam;
     uj->next = iter->next;
@@ -53,12 +54,15 @@ void scoreboard (Jatekos *elso, char *scoreboardNev, char *nev, int lepesszam) {
     char sor[1000];
 
     Jatekos *iter, *uj;
-    elso = NULL;
+    //elso = NULL;
     iter = NULL;
 
     while (!feof(filein)) {
         fgets(sor, 1000, filein);
         uj = (Jatekos*) malloc(sizeof (Jatekos));
+        if (uj == NULL) {
+            perror("Nem sikerult foglalni: lanclista_beszur_eleje: uj");
+        }
         p = strtok(sor,":");
         strcpy(uj->nev, p);
         p = strtok(NULL,"\n");

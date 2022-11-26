@@ -1,3 +1,3 @@
-C:/Users/David/CLionProjects/1nagyzh/cmake-build-debug/CMakeFiles/1nagyzh.dir
-C:/Users/David/CLionProjects/1nagyzh/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/David/CLionProjects/1nagyzh/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/david/AppData/Local/gitkraken/app-8.10.3/nagyzh/cmake-build-debug/CMakeFiles/1nagyzh.dir
+C:/Users/david/AppData/Local/gitkraken/app-8.10.3/nagyzh/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/david/AppData/Local/gitkraken/app-8.10.3/nagyzh/cmake-build-debug/CMakeFiles/rebuild_cache.dir
