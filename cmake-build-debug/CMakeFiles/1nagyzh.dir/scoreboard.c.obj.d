@@ -1,6 +1,6 @@
 CMakeFiles/1nagyzh.dir/scoreboard.c.obj: \
  C:\Users\david\AppData\Local\gitkraken\app-8.10.3\nagyzh\scoreboard.c \
- C:\Users\david\AppData\Local\gitkraken\app-8.10.3\nagyzh\mainHeader.h \
+ C:\Users\david\AppData\Local\gitkraken\app-8.10.3\nagyzh\scoreboard.h \
  F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
  F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
@@ -23,5 +23,4 @@ CMakeFiles/1nagyzh.dir/scoreboard.c.obj: \
  F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
  F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
  F:/Clion/CLion\ 2022.2.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h \
- F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/errno.h \
- F:/Clion/CLion\ 2022.2.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h
+ F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/errno.h

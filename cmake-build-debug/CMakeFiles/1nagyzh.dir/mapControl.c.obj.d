@@ -24,4 +24,14 @@ CMakeFiles/1nagyzh.dir/mapControl.c.obj: \
  F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
  F:/Clion/CLion\ 2022.2.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h \
  F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/errno.h \
- F:/Clion/CLion\ 2022.2.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h
+ F:/Clion/CLion\ 2022.2.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
+ C:\Users\david\AppData\Local\gitkraken\app-8.10.3\nagyzh\debugmalloc.h \
+ F:/Clion/CLion\ 2022.2.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
+ F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
+ F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
+ F:/Clion/CLion\ 2022.2.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdarg.h \
+ F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/stdarg.h \
+ F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+ F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/process.h \
+ F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/corecrt_startup.h \
+ F:/Clion/CLion\ 2022.2.4/bin/mingw/x86_64-w64-mingw32/include/sys/types.h

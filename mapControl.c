@@ -4,6 +4,8 @@
 
 
 #include "mainHeader.h"
+#include "debugmalloc.h"
+
 
 karakter leptet(int ***map, int const **originalMap, char beIrany, karakter  player, int *lepesSzam) {
                 switch (beIrany) {
@@ -161,9 +163,10 @@ karakter leptet(int ***map, int const **originalMap, char beIrany, karakter  pla
                     break;
                 default:
                     printf("Nem jo billentyut nyomtal meg! A jatek a W A S D billentyukkel iranyithato!\n");
-                    *lepesSzam--;
+                    lepesSzam--;
                     break;
             }
+            lepesSzam++;
             return player;
 }
 

@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
 #include "mainHeader.h"
-//#include "debugmalloc.h"
+#include "scoreboard.h"
+#include "fomenu.h"
+#include "mapvalasztas.h"
+#include "debugmalloc.h"
 
 
 

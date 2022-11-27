@@ -2,7 +2,9 @@
 // Created by David on 2022. 11. 22..
 //
 
-#include "mainHeader.h"
+#include "mapvalasztas.h"
+#include "debugmalloc.h"
+
 
 void filePathValasztas(char *filePath, char *savePath) {
     char fileName[4];
@@ -28,4 +30,27 @@ void scoreboardPathValasztas(char *scoreboardPath) {
     //realloc(scoreboardPath,strlen(fileName)+5* sizeof (char));
     strcpy(scoreboardPath, fileName);
     strcat(scoreboardPath, "_sb.txt\0");
+}
+
+bool nyerhetE (int **map, int sor, int oszlop) {
+
+    if (map[sor][oszlop] == 'X') {
+        if (map[sor][oszlop-1] == '#' || map[sor][oszlop-1] == 'X' || map[sor][oszlop-1] == '*') {
+            if (map[sor-1][oszlop] == '#' || map[sor-1][oszlop] == 'X' || map[sor-1][oszlop] == '*') {
+                return false;
+            }
+            if (map[sor+1][oszlop] == '#' || map[sor+1][oszlop] == 'X' || map[sor+1][oszlop] == '*') {
+                return false;
+            }
+        }
+        if (map[sor][oszlop+1] == '#' || map[sor][oszlop+1] == 'X' || map[sor][oszlop+1] == '*') {
+            if (map[sor - 1][oszlop] == '#' || map[sor - 1][oszlop] == 'X' || map[sor - 1][oszlop] == '*') {
+                return false;
+            }
+            if (map[sor + 1][oszlop] == '#' || map[sor + 1][oszlop] == 'X' || map[sor + 1][oszlop] == '*') {
+                return false;
+            }
+        }
+    }
+    return true;
 }

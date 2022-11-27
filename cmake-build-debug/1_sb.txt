@@ -9,11 +9,17 @@ Szeles:6
 Szeles:6
 Szeles:6
 Szeles:6
+D:21
 Da:21
 D:21
 D:21
 Da:22
+Da:22
 David:22
 David:22
 David:24
+David:0
+David:0
+David:0
+D:25
 David:0

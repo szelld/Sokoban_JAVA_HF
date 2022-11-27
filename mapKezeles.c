@@ -5,7 +5,9 @@
 
 
 #include "mainHeader.h"
+#include "debugmalloc.h"
 
+/*
 bool nyerhetE (int **map, int sor, int oszlop) {
 
     if (map[sor][oszlop] == 'X') {
@@ -27,6 +29,6 @@ bool nyerhetE (int **map, int sor, int oszlop) {
         }
     }
     return true;
-}
+}*/
 
 //main.c scoreboard.c fomenu.c mapvalasztas.c mapKezeles.c
