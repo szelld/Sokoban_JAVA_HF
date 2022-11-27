@@ -2,7 +2,7 @@
 #include "scoreboard.h"
 #include "fomenu.h"
 #include "mapvalasztas.h"
-#include "debugmalloc.h"
+//#include "debugmalloc.h"
 
 
 
@@ -397,6 +397,7 @@ QUITE_GAME:
         free(originalMap[i]);
     }
     free(originalMap);
+
 
 QUITE_NOGAME:
 

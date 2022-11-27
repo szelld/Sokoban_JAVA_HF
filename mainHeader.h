@@ -19,7 +19,4 @@ typedef struct karakter {
 }karakter;
 
 
-///mapControl.c
-karakter leptet(int ***map, int const **originalMap, char beIrany, karakter  player, int *lepsSzam);
-
 #endif //MAIN_C_MAINHEADER_H

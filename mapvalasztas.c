@@ -3,7 +3,7 @@
 //
 
 #include "mapvalasztas.h"
-#include "debugmalloc.h"
+//#include "debugmalloc.h"
 
 
 void filePathValasztas(char *filePath, char *savePath) {

@@ -61,7 +61,22 @@ void scoreboard (Jatekos *elso, char *scoreboardNev, char *nev, int lepesszam) {
 
     while (!feof(filein)) {
         fgets(sor, 1000, filein);
-        uj = (Jatekos*) malloc(sizeof (Jatekos));
+        char nev[50];
+        int lepes;
+
+        p = strtok(sor,":");
+        strcpy(nev, p);
+        p = strtok(NULL,"\n");
+        lepes = atoi(p);
+
+        if (elso == NULL) {
+            elso = lanclista_beszur_eleje(elso, nev, lepes);
+        }
+        else {
+            lanclista_beszur(elso, nev, lepes);
+        }
+
+       /* uj = (Jatekos *) malloc(sizeof (Jatekos));
         if (uj == NULL) {
             perror("Nem sikerult foglalni: lanclista_beszur_eleje: uj");
         }
@@ -78,7 +93,7 @@ void scoreboard (Jatekos *elso, char *scoreboardNev, char *nev, int lepesszam) {
         else {
             iter->next = uj;
             iter = uj;
-        }
+        }*/
     }
     fclose(filein);
 

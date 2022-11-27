@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/david/AppData/Local/gitkraken/app-8.10.3/nagyzh/cmake-build-debug",
-		"source" : "C:/Users/david/AppData/Local/gitkraken/app-8.10.3/nagyzh"
+		"build" : "C:/Users/David/CLionProjects/1nagyzh/cmake-build-debug",
+		"source" : "C:/Users/David/CLionProjects/1nagyzh"
 	},
 	"version" : 
 	{
